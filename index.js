@@ -1,9 +1,9 @@
 /**
  * @format
  */
-
+import 'react-native-gesture-handler';
 import {AppRegistry} from 'react-native';
-import Main2 from './src/Main2';
+import Router2 from './src/Router2';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => Main2);
+AppRegistry.registerComponent(appName, () => Router2);

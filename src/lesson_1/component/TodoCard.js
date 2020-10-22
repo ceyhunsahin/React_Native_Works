@@ -1,14 +1,13 @@
-import React from 'react';
-import {TouchableOpacity, View, Text} from 'react-native';
 
-import {todo_card} from '../styles';
+import React from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+
+import { todo_card } from '../styles'
 
 const TodoCard = (props) => {
     return (
-        <TouchableOpacity 
-            style = {todo_card.container}
-            //onPress={() => alert(props.data.id)}>
-            //onPress={() => props.onDone(props.data.id)}>
+        <TouchableOpacity
+            style={todo_card.container}
             onPress={() => props.onDone()}
             onLongPress={() => props.onRemove()}
         >
@@ -17,13 +16,13 @@ const TodoCard = (props) => {
                 { textDecorationLine: props.data.isDone ? 'line-through' : null }
             ]}>{props.data.todo}</Text>
         </TouchableOpacity>
-
     )
 }
-export {TodoCard}
 
+export { TodoCard }
 
-
+            //onPress={() => alert(props.data.id)}>
+            //onPress={() => props.onDone(props.data.id)}>
 
 
 

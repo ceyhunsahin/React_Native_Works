@@ -51,28 +51,29 @@ const Main2 = () => {
         )
     }
 
+
     return (
-    <SafeAreaView style={main.container}>
-        <KeyboardAvoidingView style={main.container} behavior = "padding">
-            <View style = {main.banner}>
-                <Text style = {main.todoText}>TODO</Text>
-                <Text style = {main.todoCount}>{list.length}</Text>
-            </View >
+        <SafeAreaView style={main.container}>
+            <KeyboardAvoidingView style={main.container} behavior="padding">
 
-            <FlatList
-                keyExtractor = {(item,index)=>index.toString()}
-                data = {list}
-                renderItem = {renderTodo}
-                ListEmptyComponent = {() => <Text style = {main.emptycomponent}>Nothing To do...</Text>}
+                <View style={main.banner}>
+                    <Text style={main.todoText}>TODO</Text>
+                    <Text style={main.todoCount}>{list.filter(t => t.isDone === false).length}</Text>
+                </View>
 
+                <FlatList
+                    keyExtractor={(item, index) => index.toString()}
+                    data={list}
+                    renderItem={renderTodo}
+                    ListEmptyComponent={() => <Text style={main.emptyComponent}>Nothing to do..</Text>}
                 />
-            
-            <TodoInput 
-            onTodoEnter = {todoText  => addTodo(todoText)}
 
-            />
-        </KeyboardAvoidingView >
-    </SafeAreaView>
+                <TodoInput
+                    onTodoEnter={todoText => addTodo(todoText)}
+                />
+
+            </KeyboardAvoidingView>
+        </SafeAreaView>
     );
 }
 
